@@ -23,7 +23,7 @@ subtitle                 : # site tagline that appears below site title in masth
 name                     : #
 description              : "Our lab takes a human-centric approach to develop Intelligent Systems that meaningfully and productively interact with humans. We conduct research at the intersection of HCI, Vis, and AI/ML."
 
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://uw-insight-lab.com # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -47,7 +47,7 @@ analytics:
 author:
   name             : 
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Our lab takes a human-centric approach to develop Intelligent Systems that meaningfully and productively interact with humans. We conduct research at the interaction of HCI, Vis, and AI/ML."
+  bio              : "Our lab takes a human-centric approach to developing Intelligent Systems that meaningfully and productively interact with humans. We conduct research at the intersection of HCI, Vis, and AI/ML."
   location         : 
   email            : 
   links:
