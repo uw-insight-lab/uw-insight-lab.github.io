@@ -1,0 +1,5 @@
+{% assign alias = "" %}
+{% if include.person.alias %}
+  {% assign alias = include.person.alias | prepend: "(" | append: ")" %}
+{% endif %}
+{{ include.person.firstname }} {{ alias }} {{ include.person.lastname }}

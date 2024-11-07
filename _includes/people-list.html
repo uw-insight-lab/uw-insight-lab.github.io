@@ -1,0 +1,47 @@
+{% if include.arr.size > 0 %}
+<h2>{{ include.title }}</h2>
+<ul class="people-list">
+    {% for person in include.arr %}
+      <li id="{{ person.firstname | append: person.lastname | url_encode }}" class="person" data-group="{{ person.group }}">
+        {% unless include.hidepic %}
+          {% if person.pic contains '://'%}
+            <img src="{{ person.pic }}" />
+          {% else %}
+            <img src="/assets/img/people/{{ person.pic }}.jpg" />
+          {% endif %}
+        {% endunless %}
+
+        <div class="descrip">
+          {% if person.website == "" %}
+          {% include makename.html person=person %}
+          {% else %}
+          <a href="{{ person.website }}">{% include makename.html person=person %}</a>
+          {% endif %}
+        </div>
+
+        {% if person.position %}
+        <div class="descrip-position">{{ person.position }}</div>
+        {% endif %}
+
+        <!-- MAY WANT TO REMOVE THIS LATER -->
+        {% if person.degree %}
+        <div class="descrip-position">{{ person.degree }}</div>
+        {% endif %}
+
+        {% if person.alum-position %}
+        <div class="descrip-extra">
+          {{ person.alum-position }}
+          {% if person.affiliation %}
+            at {{ person.affiliation }}
+          {% endif %}
+        </div>
+        {% endif %}
+
+        {% if person.keywords %}
+        <div class="descrip-extra">{{ person.keywords | join: ", " }}</div>
+        {% endif %}
+      </li>
+
+    {% endfor %}
+</ul>
+{% endif %}

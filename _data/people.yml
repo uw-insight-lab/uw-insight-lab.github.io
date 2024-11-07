@@ -1,0 +1,43 @@
+# Use "" for when no website
+# Use "default" for when no picture
+
+# Current students/faculty
+# Faculty
+
+- firstname: Anamaria
+  lastname: Crisan
+  role: faculty
+  website: https://amcrisan.github.io/
+  pic: ana-crisan
+  position: Assistant Professor
+
+  # Post-Doc
+
+  # PhD students
+
+- firstname: Felicia
+  lastname: Feng
+  degree: PhD
+  role: phd
+  website: https://felicia35.github.io/
+  pic: felicia-feng
+  keywords:
+    - Human-AI Collaboration
+
+  # Masters students
+- firstname: Xinxin
+  lastname: Yu
+  degree: MMath
+  role: masters
+  website: ""
+  pic: xinxin-yu
+  keywords:
+    - Evaluation
+    - Data Science
+
+# Alumni (don't need pics with current layout)
+# Example
+#- {firstname: "Yen-Ting", alias: "Allen", lastname: "Yeh", role: "alum-phd", website: "https://yentingyeh.com", pic: "allen-yeh", now:""}
+
+
+

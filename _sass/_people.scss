@@ -1,0 +1,110 @@
+
+.peoplepage {
+    display: flex;
+    flex-direction: row;
+
+    .sidebar {
+        border-right: 1px solid $light-font-color;
+        margin-right: $pad*2;
+        max-width: 250px;
+
+        ul {
+            @include ul-no-style;
+            padding: 0;
+            margin: 0;
+        }
+
+        .group {
+            padding-bottom: $pad;
+            padding-right: $pad;
+            cursor: pointer;
+
+            p {
+              margin: 10px 0;
+            }
+
+            .group-divider {
+              opacity: 0.3;
+            }
+
+            .group-full-name {
+              font-size: .8em;
+              font-weight: 700;
+            }
+
+            .group-description {
+              font-size: 0.6em;
+              color: #666;
+            }
+
+            .group-director {
+              font-size: 0.65em;
+              color: #666;
+            }
+        }
+
+        .group:hover {
+          background-color: #f0f0f0;
+        }
+    }
+}
+
+ul.people-list {
+    @include ul-no-style;
+    @include usual-grid;
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+    flex: 1 1 auto;
+
+    li {
+        padding-bottom: $pad;
+
+        // For IE compatability
+        vertical-align: top; // align images
+        display: inline-block;
+        max-width: 550px; // prevent text overflow
+
+        img {
+            max-width: 100%;
+            width: 200px;
+            border-radius: 10px;
+        }
+        
+        .descrip {
+            width:$descrip-width;
+            font-size: 80%;
+            color: $light-font-color;
+        }
+
+        .descrip-position {
+            width:$descrip-position;
+            font-size: 60%;
+            color: $light-font-color;
+            font-weight: 700;
+        }
+
+        .descrip-extra {
+            width:$descrip-extra;
+            font-size: 60%;
+            color: $light-font-color;
+        }
+    }
+}
+
+@media only screen and (max-width: $mobile-width) {
+
+    .peoplepage > .sidebar {
+        display: none;
+    }
+
+    .peoplepage,
+    ul.people-list {
+        grid-template-columns: 100%;
+    }
+
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

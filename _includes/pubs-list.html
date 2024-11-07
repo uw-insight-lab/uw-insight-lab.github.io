@@ -1,0 +1,51 @@
+{% if include.arr.size > 0 %}
+<ul>
+    <h3 class="year"> {{ include.yr }} </h3>
+    {% for pub in include.arr %}
+    <li class="pub-entry">
+    {% if pub.media.img %}
+    <div class="pub-image">
+        <img src="/assets/img/papers/{{ pub.media.img }}" />
+    </div>
+    {% endif %}
+    
+    <div class="pub-details">
+        <div class="venue-award-container">
+            <p class="venue">{{ pub.venue_short }}</p>
+            {% if pub.award %}
+            <p class="award">🏆 {{ pub.award }}</p>
+            {% endif %}
+        </div>
+        <div class="pub-title">
+                {{ pub.title}}
+            </div>
+            <div class="pub-info">
+                {{ pub.authors }} ({{pub.year}}) <em>{{ pub.venue }}</em>
+            </div>
+            <div class="pub-media">
+                {% if pub.media.paper %}
+                    <a href="/assets/papers/{{ pub.media.paper }}" target="_blank">paper</a>
+                {% endif %}
+                {% if pub.media.slides %}
+                    <a href="/assets/slides/{{ pub.media.slides }}" target="_blank">slides</a>
+                {% endif %}
+                {% if pub.doi %}
+                    <a href="{{ pub.doi }}" target="_blank">doi</a>
+                {% endif %}
+                {% if pub.url %}
+                    <a href="{{ pub.url }}" target="_blank">url</a>
+                {% endif %}
+            </div>
+            <!-- <div class="pub-tags">
+                {% if pub.tags %}
+                    {% for tag in pub.tags %}
+                        <span class="pub-tag">{{ tag }}</span>
+                    {% endfor %}
+                {% endif %}
+        </div> -->
+   </div>
+
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

@@ -6,4 +6,11 @@ search: false
 @charset "utf-8";
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes"; // main partials
+@import "minimal-mistakes";
+
+//Custom
+@import "vars";
+@import "mixins";
+@import "people";
+@import "publications";
+

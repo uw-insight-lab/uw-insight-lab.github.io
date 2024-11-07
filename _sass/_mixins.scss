@@ -1,0 +1,25 @@
+@mixin usual-grid {
+    display: grid;
+    grid-auto-rows: auto;
+    grid-column-gap: $pad;
+    grid-row-gap: $pad;
+}
+
+@mixin cap-width {
+    margin: 0 auto;
+    display: block;
+    padding: $pad;
+    width: $safe-size;
+    max-width: $page-width;
+    box-sizing: border-box;
+}
+
+@mixin ul-no-style {
+    list-style: none;
+    padding-left: 0;
+}
+
+@mixin nostyle-link {
+    text-decoration: none;
+    color: inherit;
+}

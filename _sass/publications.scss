@@ -1,0 +1,78 @@
+
+.year {
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+
+.venue {
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #a2c8ec;
+    padding: 4px 8px;
+    margin: 0;
+    border-radius: 4px;
+    width: 50px;
+}
+.award{
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #f7e76a;
+    padding: 4px 8px;
+    margin: 0;
+    border-radius: 4px;
+}
+
+.venue-award-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .25rem; /* adds space between elements */
+}
+
+.pub-entry {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-gap: 1rem;
+    margin-bottom: 1rem;
+    
+    span {
+        display: contents;
+    }
+    
+}
+
+.pub-image {
+    width: 100%;
+    grid-column: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #d3d3d3;
+}
+
+.pub-details {
+    grid-column: 2;
+}
+
+.pub-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+.pub-info {
+    font-size: 12px;
+}
+
+.pub-year {
+    font-size: 12px;
+}
+
+.pub-media {
+    font-size: 12px;
+}
+
+.pub-tag {
+    font-size: 12px;
+    background-color: #d3d3d3;
+    padding: 2px;
+    border-radius: 5px;
+}

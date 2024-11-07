@@ -1,0 +1,81 @@
+- title: Eliciting Model Steering Interactions From Users via Data and Visual Design Probes
+  authors: Anamaria Crisan, Maddie Shang, Eric Brochu
+  venue: IEEE Trans. on Visualization and Comptuer Graphics
+  venue_short: TVCG
+  year: 2024
+  doi: https://doi.org/10.1109/TVCG.2023.3322898
+  media:
+    paper: TVCG24-ModelSteering.pdf
+    slides: TVCG24-ModelSteering-slides.pdf
+###
+- title: We Don't Know How to Assess LLM Contributions in VIS/HCI
+  authors: Anamaria Crisan
+  venue: BELIV Workshop Series
+  venue_short: BELIV
+  tags:
+  year: 2024
+  media:
+    paper: BELIV24-LLMEVALUATION.pdf
+    slides: BELIV24-LLMEVALUATIONS-slides.pdf
+###
+- title: Exploring Subjective Notions of Explainability through Counterfactual Visualization of Sentiment Analysis 
+  authors: Anamaria Crisan, Nathan Butters, Zoë
+  venue: BELIV Workshop Series
+  venue_short: BELIV
+  tags:
+  year: 2024
+  media:
+    paper: BELIV24-CasualXAI.pdf
+    slides: BELIV24-CausalXAI-slides.pdf
+###
+- title: Towards a Holistic Evaluation of LLM Generated Code
+  authors: Anamaria Crisan, Enamul Hoque
+  venue: ACM CHI'24 Workshop on Human-Centered Evaluation and Auditing of Language Models
+  venue_short: HEAL
+  year: 2024
+  url: https://heal-workshop.github.io/
+  media:
+    paper: HEAL24-HolisticEval.pdf
+###
+- title: Tracing and visualizing human-ML/AI Collaborative Processes through Artifacts of Data Work
+  authors: Jennifer Rogers, Anamaria Crisan
+  venue: Proc. ACM CHI'23
+  venue_short: CHI
+  award: Best Paper - Honorable Mention
+  year: 2023
+  doi: https://doi.org/10.1145/3544548.3580819
+  media:
+    paper: CHI23-AutoMLTrace.pdf
+    video: https://www.youtube.com/watch?v=WBAdh5Z4SSI
+###
+- title: "Interactive Model Cards: A Human-Centered Approach to Model Documentation"
+  authors: Anamaria Crisan, Margaret Drouhard, Jesse Vig, Nazneen Rajani
+  venue: Proc. ACM FAccT'22
+  venue_short: FAccT
+  year: 2022
+  doi: https://doi.org/10.1145/3531146.3533108
+  media:
+    paper: CHI23-AutoMLTrace.pdf
+
+###
+- title: "Fits and starts: Enterprise use of AutoML and the Role of Humans in the Loop"
+  authors: Anamaria Crisan, Brittany Fiore-Gartland
+  venue: Proc.  ACM CHI'21
+  venue_short: CHI
+  award: Best Paper - Honorable Mention
+  year: 2021
+  doi: https://doi.org/10.1145/3411764.3445775
+  media:
+    paper: CHI21-FitsandStarts.pdf
+###
+- title: "Passing the Data Baton : A Retrospective Analysis on Data Science Work and Workers"
+  authors: Anamaria Crisan, Brittany Fiore-Gartland, Melanie Tory
+  venue: IEEE Trans. on Visualization and Comptuer Graphics
+  venue_short: TVCG
+  award: Best Paper - VDS'20
+  year: 2020
+  doi: https://doi.org/10.1109/TVCG.2020.3030340
+  media:
+    paper: TVCG20-DataBaton.pdf
+
+    
