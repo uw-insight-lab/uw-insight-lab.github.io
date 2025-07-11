@@ -1,78 +1,151 @@
+// MIT VIS-style Publications List
 
-.year {
-    font-size: 18px;
-    font-weight: bold;
-    
+.pubs-list-compact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.venue {
-    font-size: 12px;
-    font-weight: bold;
-    background-color: #a2c8ec;
-    padding: 4px 8px;
-    margin: 0;
-    border-radius: 4px;
-    width: 50px;
-}
-.award{
-    font-size: 12px;
-    font-weight: bold;
-    background-color: #f7e76a;
-    padding: 4px 8px;
-    margin: 0;
-    border-radius: 4px;
+.pubs-list-compact .pub-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.4rem 0.1rem 0.4rem 0.1rem;
+  font-size: 0.92rem;
+  border-bottom: 1px solid #ececec;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: unset;
+  max-height: unset;
 }
 
-.venue-award-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: .25rem; /* adds space between elements */
+.pubs-list-compact .pub-entry:hover {
+  background: #f6f8fa;
 }
 
-.pub-entry {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    grid-gap: 1rem;
-    margin-bottom: 1rem;
-    
-    span {
-        display: contents;
-    }
-    
-}
-
-.pub-image {
+.pubs-list-compact .pub-image {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  img {
     width: 100%;
-    grid-column: 1;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #d3d3d3;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  }
 }
 
-.pub-details {
-    grid-column: 2;
+.pubs-list-compact .pub-details {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
 }
 
-.pub-title {
-    font-size: 16px;
-    font-weight: bold;
-}
-.pub-info {
-    font-size: 12px;
-}
-
-.pub-year {
-    font-size: 12px;
+.pubs-list-compact .pub-title {
+  font-size: 0.98em;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.2;
+  margin-bottom: 0.05rem;
+  word-break: break-word;
 }
 
-.pub-media {
-    font-size: 12px;
+.pubs-list-compact .pub-info {
+  font-size: 0.88em;
+  color: #444;
+  line-height: 1.1;
+  margin-bottom: 0.05rem;
+  word-break: break-word;
 }
 
-.pub-tag {
-    font-size: 12px;
-    background-color: #d3d3d3;
-    padding: 2px;
-    border-radius: 5px;
+.pubs-list-compact .pub-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.85em;
+  color: #666;
+  flex-wrap: wrap;
+}
+
+.pubs-list-compact .venue-full {
+  color: #666;
+  font-weight: 400;
+  font-size: 0.92em;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  text-transform: none;
+  letter-spacing: 0;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+.pubs-list-compact .award {
+  color: #ff9800;
+  font-weight: 600;
+  font-size: 0.92em;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.pubs-list-compact .pub-media {
+  display: flex;
+  align-items: center;
+  gap: 0.15em;
+  margin-left: 0.2em;
+}
+
+.pubs-list-compact .pub-media a {
+  color: #888;
+  font-size: 0.85em;
+  text-decoration: none;
+  padding: 0.05em 0.1em;
+  border-radius: 3px;
+  transition: background 0.2s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+}
+
+.pubs-list-compact .pub-media a.doi-link {
+  color: #1976d2;
+  font-size: 0.92em;
+  font-weight: 500;
+  background: none;
+  padding: 0 0.2em;
+  border-radius: 2px;
+  text-decoration: underline dotted;
+  margin-left: 0.2em;
+}
+
+.pubs-list-compact .pub-media a.doi-link:hover {
+  background: #e3eafc;
+  color: #0d47a1;
+}
+
+@media (max-width: 600px) {
+  .pubs-list-compact .pub-entry {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    padding: 0.3rem 0.05rem 0.3rem 0.05rem;
+  }
+  .pubs-list-compact .pub-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1em;
+  }
+  .pubs-list-compact .pub-image {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 0.1rem;
+  }
 }

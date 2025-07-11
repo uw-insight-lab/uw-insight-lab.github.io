@@ -2,46 +2,187 @@
 <h2>{{ include.title }}</h2>
 <ul class="people-list">
     {% for person in include.arr %}
-      <li id="{{ person.firstname | append: person.lastname | url_encode }}" class="person" data-group="{{ person.group }}">
-        {% unless include.hidepic %}
-          {% if person.pic contains '://'%}
-            <img src="{{ person.pic }}" />
-          {% else %}
-            <img src="/assets/img/people/{{ person.pic }}.jpg" />
-          {% endif %}
-        {% endunless %}
+      <li id="{{ person.firstname | append: person.lastname | url_encode }}" class="person {{ person.role }}" data-group="{{ person.group }}" 
+          data-person='{"firstname":"{{ person.firstname }}","lastname":"{{ person.lastname }}","role":"{{ person.role }}","website":"{{ person.website }}","pic":"{{ person.pic }}","position":"{{ person.position }}","degree":"{{ person.degree }}","thesis-topic":"{{ person.thesis-topic }}","keywords":{{ person.keywords | jsonify }},"projects":{{ person.projects | jsonify }},"papers":{{ person.papers | jsonify }}}'
+          onclick="openModal(this)">
 
-        <div class="descrip">
-          {% if person.website == "" %}
+        <!-- Profile Image Container -->
+        <div class="profile-image-container">
+          {% unless include.hidepic %}
+            {% if person.pic contains '://'%}
+              <img src="{{ person.pic }}" alt="{{ person.firstname }} {{ person.lastname }}" />
+            {% else %}
+              <img src="/assets/img/people/{{ person.pic }}.jpg" alt="{{ person.firstname }} {{ person.lastname }}" />
+            {% endif %}
+          {% endunless %}
+        </div>
+
+        <!-- Name -->
+        <div class="person-name">
           {% include makename.html person=person %}
-          {% else %}
-          <a href="{{ person.website }}">{% include makename.html person=person %}</a>
+        </div>
+
+        <!-- Role Badge -->
+        <div class="role-badge">
+          {% if person.role == 'faculty' %}
+            <span class="role-tag faculty">Faculty</span>
+          {% elsif person.role == 'phd' %}
+            <span class="role-tag phd">PhD</span>
+          {% elsif person.role == 'masters' %}
+            <span class="role-tag masters">MMath</span>
+          {% elsif person.role == 'undergrad' %}
+            <span class="role-tag undergrad">Undergrad</span>
+          {% elsif person.role == 'postdoc' %}
+            <span class="role-tag postdoc">PostDoc</span>
           {% endif %}
         </div>
 
-        {% if person.position %}
-        <div class="descrip-position">{{ person.position }}</div>
-        {% endif %}
-
-        <!-- MAY WANT TO REMOVE THIS LATER -->
-        {% if person.degree %}
-        <div class="descrip-position">{{ person.degree }}</div>
-        {% endif %}
-
-        {% if person.alum-position %}
-        <div class="descrip-extra">
-          {{ person.alum-position }}
-          {% if person.affiliation %}
-            at {{ person.affiliation }}
-          {% endif %}
+        <!-- {% if person.duration %}
+        <div class="duration">
+            <span class="duration" style="font-size: 0.5rem; color: #888;">{{ person.duration }}</span>
         </div>
         {% endif %}
-
-        {% if person.keywords %}
-        <div class="descrip-extra">{{ person.keywords | join: ", " }}</div>
+      -->
+        <!-- Keywords
+        {% if person.keywords and person.keywords.size > 0 %}
+        <div class="keywords">
+          {% for keyword in person.keywords limit:3 %}
+            <span class="keyword-tag">{{ keyword }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+         -->
+        <!-- Website Link -->
+        {% if person.website and person.website != "" %}
+        <div class="website-link">
+          <a href="{{ person.website }}" target="_blank" onclick="event.stopPropagation()">
+            <span class="website-icon">🌐</span>
+            <span class="website-text">{{ person.website | replace: "https://", "" | replace: "http://", "" | truncate: 20 }}</span>
+          </a>
+        </div>
         {% endif %}
       </li>
-
     {% endfor %}
 </ul>
+
+<!-- Modal Overlay -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        
+        <div class="modal-main">
+            <div class="modal-header">
+                <img class="modal-image" id="modalImage" src="" alt="" />
+                <div class="modal-info">
+                    <div class="modal-name" id="modalName"></div>
+                    <div class="modal-position" id="modalPosition"></div>
+                    <div class="modal-role" id="modalRole"></div>
+                </div>
+            </div>
+            <div class="modal-thesis" id="modalThesis"></div>
+        </div>
+        
+        <div class="modal-details">
+            <!-- Research Keywords/Tags -->
+            <div class="section" id="modalKeywords" style="display: none;">
+                <div class="section-title">Research Areas</div>
+                <div class="research-tags" id="modalTags"></div>
+            </div>
+
+            <!-- Current Projects -->
+            <div class="section" id="modalProjects" style="display: none;">
+                <div class="section-title">Current Projects</div>
+                <div class="section-content" id="modalProjectsContent"></div>
+            </div>
+
+            <!-- Top Papers -->
+            <div class="section" id="modalPapers" style="display: none;">
+                <div class="section-title">Selected Publications</div>
+                <div class="papers" id="modalPapersContent"></div>
+            </div>
+
+            <!-- Website Link -->
+            <div class="website-link" id="modalWebsite" style="display: none;">
+                <a href="" target="_blank" id="modalWebsiteLink">
+                    Visit Personal Website
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openModal(card) {
+    const person = JSON.parse(card.getAttribute('data-person'));
+    const modal = document.getElementById('modalOverlay');
+    
+    // Set modal content
+    document.getElementById('modalImage').src = person.pic.includes('://') ? person.pic : `/assets/img/people/${person.pic}.jpg`;
+    document.getElementById('modalName').textContent = `${person.firstname} ${person.lastname}`;
+    document.getElementById('modalPosition').textContent = person.position || person.degree || '';
+    document.getElementById('modalRole').textContent = person.role.toUpperCase();
+    document.getElementById('modalRole').className = `modal-role ${person.role}`;
+    document.getElementById('modalThesis').textContent = person['thesis-topic'] || '';
+    
+    // Show/hide sections based on available data
+    const keywordsSection = document.getElementById('modalKeywords');
+    const projectsSection = document.getElementById('modalProjects');
+    const papersSection = document.getElementById('modalPapers');
+    const websiteSection = document.getElementById('modalWebsite');
+    
+    if (person.keywords && person.keywords.length > 0) {
+        const tagsContainer = document.getElementById('modalTags');
+        tagsContainer.innerHTML = person.keywords.map(keyword => `<span class="tag">${keyword}</span>`).join('');
+        keywordsSection.style.display = 'block';
+    } else {
+        keywordsSection.style.display = 'none';
+    }
+    
+    if (person.projects && person.projects.length > 0) {
+        const projectsContent = document.getElementById('modalProjectsContent');
+        projectsContent.innerHTML = person.projects.map(project => `<div class="project-item">• ${project}</div>`).join('');
+        projectsSection.style.display = 'block';
+    } else {
+        projectsSection.style.display = 'none';
+    }
+    
+    if (person.papers && person.papers.length > 0) {
+        const papersContent = document.getElementById('modalPapersContent');
+        papersContent.innerHTML = person.papers.map(paper => `
+            <div class="paper-item">
+                <div class="paper-title">${paper.title}</div>
+                <div class="paper-authors">${paper.authors}</div>
+                <div class="paper-venue">${paper.venue}</div>
+            </div>
+        `).join('');
+        papersSection.style.display = 'block';
+    } else {
+        papersSection.style.display = 'none';
+    }
+    
+    if (person.website && person.website !== '') {
+        document.getElementById('modalWebsiteLink').href = person.website;
+        websiteSection.style.display = 'block';
+    } else {
+        websiteSection.style.display = 'none';
+    }
+    
+    // Show modal
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    const modal = document.getElementById('modalOverlay');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeModal();
+    }
+});
+</script>
 {% endif %}

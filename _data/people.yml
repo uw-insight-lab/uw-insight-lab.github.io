@@ -7,9 +7,16 @@
 - firstname: Anamaria
   lastname: Crisan
   role: faculty
-  website: https://amcrisan.github.io/
+  website: https://cs.uwaterloo.ca/~amcrisan/
   pic: ana-crisan
   position: Assistant Professor
+  thesis-topic: "Human-AI Collaboration in Data Visualization and Interactive Machine Learning"
+  keywords:
+    - Human-AI Collaboration
+    - Data Visualization
+    - Interactive Machine Learning
+    - Human-Computer Interaction
+
 
   # Post-Doc
 
@@ -19,10 +26,20 @@
   lastname: Feng
   degree: PhD
   role: phd
+  duration: 2024.09 -
+  co-superisvor: Jian Zhao
   website: https://felicia35.github.io/
   pic: felicia-feng
+  thesis-topic: "Evaluating and Improving Human-AI Collaboration in Explainable AI Systems"
   keywords:
     - Human-AI Collaboration
+    - Explainable AI
+    - User Experience Design
+    - Machine Learning Evaluation
+  projects:
+    - "Evaluating user trust in AI explanations"
+    - "Designing better interfaces for AI model debugging"
+    - "Studying human-AI interaction patterns"
 
   # Masters students
 - firstname: Xinxin
@@ -30,14 +47,64 @@
   degree: MMath
   role: masters
   website: ""
+  duration: 2024.09 -
   pic: xinxin-yu
+  thesis-topic: "Evaluation Methods for Data Science and Statistical Analysis in HCI Research"
   keywords:
-    - Evaluation
+    - Evaluation Methods
     - Data Science
+    - Statistical Analysis
+    - Research Methodology
+  projects:
+    - "Developing evaluation frameworks for HCI research"
+    - "Statistical analysis of user interaction data"
+    - "Improving research methodology in data science"
 
-# Alumni (don't need pics with current layout)
-# Example
-#- {firstname: "Yen-Ting", alias: "Allen", lastname: "Yeh", role: "alum-phd", website: "https://yentingyeh.com", pic: "allen-yeh", now:""}
+  
+- firstname: Sejal
+  lastname: Agarwal
+  degree: MMath
+  role: masters
+  duration: 2025.09 -
+  website: "https://sejal-agarwal.github.io/"
+  pic: sejal-agarwal
+  thesis-topic: "AI for Data Science Education"
+  keywords:
+    - Pedagogy
+    - Data Science
+ 
 
+- firstname: Austing
+  lastname: Dong
+  degree: Bachelors
+  role: undergrad
+  duration: 2025.01 - 
+  website: https://austingdong.github.io/Portfolio/
+  pic: austing-dong
+  thesis-topic: "AI for Data Science Education"
+  keywords:
+    - Explainable AI
+    - Data Visualization
+
+- firstname: Maksym
+  lastname: Bidnyi
+  degree: MMath
+  role: masters
+  duration: 2025.09 - 
+  pic: headshot-placeholder
+  thesis-topic: "Multi-agentic Biomedical Analytics"
+  keywords:
+    - Agentic AI
+    - Bioinformatics
+    - Multi-agentic Systems
+
+- firstname: Samiha
+  lastname: Anuva
+  degree: MMath
+  role: masters
+  duration: 2025.09 - 
+  pic: headshot-placeholder
+  thesis-topic: "To be determined"
+  keywords:
 
 

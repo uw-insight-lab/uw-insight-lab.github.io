@@ -347,3 +347,15 @@
     margin-inline-end: initial;
   }
 }
+
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.sidebar-logo img {
+  display: block;
+  margin: 0 auto;
+  max-width: 80%;
+  height: auto;
+}
